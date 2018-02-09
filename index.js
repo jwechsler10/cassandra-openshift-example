@@ -13,6 +13,13 @@ var keyspace = "CREATE KEYSPACE [IF NOT EXISTS] users" +
                   "'replication_factor' : 1" +
                   "};";
 
+client.execute(keyspace, (err, result) => {
+ if (err)
+  console.log(err);
+ else
+  console.log("Keyspace created successfully");
+});
+
 var table = "CREATE TABLE users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 

@@ -2,7 +2,7 @@ package com.connection;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 
-public class Tester {
+public class Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

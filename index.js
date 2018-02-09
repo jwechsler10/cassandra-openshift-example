@@ -4,16 +4,16 @@ var async = require('async');
 var client = new cassandra.Client({contactPoints: ['172.30.224.244']});
 client.connect((err) => {
  if(err) console.log(err);
- console.log('Connection to Cassandra Successful!');
-});
-
-var keyspace = "CREATE KEYSPACE [IF NOT EXISTS] users" +
+ 
+ else {
+  console.log('Connection to Cassandra Successful!');
+  var keyspace = "CREATE KEYSPACE [IF NOT EXISTS] users" +
                  "WITH REPLICATION = {" +
                   "'class' : 'SimpleStrategy'," +
                   "'replication_factor' : 1" +
                   "};";
 
-client.execute(keyspace, (err, result) => {
+ client.execute(keyspace, (err, result) => {
  if (err)
   console.log(err);
  else
@@ -27,13 +27,15 @@ var table = "CREATE TABLE users(" +
                                    "city TEXT, " +
                                    "email TEXT," +
                                    "firstname TEXT );";
-client.execute(table, (err, result) => {
+   client.execute(table, (err, result) => {
    if (err) 
     console.log(err);
    else
     console.log("Table created successfully");
 });
- 
+  }
+});
+
 // Use async series to run functions in serial (one after another)
 async.series([
     // Insert Bob

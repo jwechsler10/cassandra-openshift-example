@@ -32,8 +32,8 @@ async.series([
             // Run next function in series
             callback(err, null);
         });
-    }
-   /* // Update Bob's age
+    },
+    // Update Bob's age
     function (callback) {
         client.execute("UPDATE users SET age = 36 WHERE lastname = 'Jones'", function (err, result) {
             // Run next function in series
@@ -74,5 +74,5 @@ async.series([
             // Run next function in series
             callback(err, null);
         });
-    } */
+    }
 ]);

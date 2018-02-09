@@ -8,7 +8,7 @@
   <build>
     <pluginManagement>
     <plugins>
-      <plugin>
+     <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
@@ -34,7 +34,7 @@
           </manifest>
         </archive>
       </configuration>
-    </plugin>
+    </plugin> -->
     </plugins>
     </pluginManagement>
   </build>

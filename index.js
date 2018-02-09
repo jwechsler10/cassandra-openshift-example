@@ -75,7 +75,4 @@ async.series([
             callback(err, null);
         });
     } */
-], function (err, results) {
-    // All finished, quit
-    process.exit();
-});
+]);

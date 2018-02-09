@@ -7,13 +7,19 @@ client.connect((err) => {
  console.log('Connection to Cassandra Successful!');
 });
 
+var keyspace = "CREATE KEYSPACE [IF NOT EXISTS] users" +
+                 "WITH REPLICATION = {" +
+                  "'class' : 'SimpleStrategy'," +
+                  "'replication_factor' : 1" +
+                  "};";
+
 var table = "CREATE TABLE users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 
                                    "age INT," +
                                    "city TEXT, " +
                                    "email TEXT," +
-                                   "firstname TEXT )";
+                                   "firstname TEXT );";
 client.execute(table, (err, result) => {
    if (err) 
     console.log(err);

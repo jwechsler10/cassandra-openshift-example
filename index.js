@@ -13,6 +13,7 @@ async.series([
     function (callback) {
         client.execute("INSERT INTO users (lastname, age, city, email, firstname) VALUES ('Jones', 35, 'Austin', 'bob@example.com', 'Bob')", function (err, result) {
             // Run next function in series
+            console.log("Insert was successful");
             callback(err, null);
         });
     },
@@ -31,8 +32,8 @@ async.series([
             // Run next function in series
             callback(err, null);
         });
-    },
-    // Update Bob's age
+    }
+   /* // Update Bob's age
     function (callback) {
         client.execute("UPDATE users SET age = 36 WHERE lastname = 'Jones'", function (err, result) {
             // Run next function in series
@@ -73,7 +74,7 @@ async.series([
             // Run next function in series
             callback(err, null);
         });
-    }
+    } */
 ], function (err, results) {
     // All finished, quit
     process.exit();

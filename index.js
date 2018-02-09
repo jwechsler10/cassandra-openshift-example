@@ -2,6 +2,10 @@ var cassandra = require('cassandra-driver');
 var async = require('async');
  
 var client = new cassandra.Client({contactPoints: ['172.30.224.244'], keyspace: 'demo'});
+client.connect((err) => {
+ if(err) console.log(err);
+ console.log('Connection to Cassandra Successful!');
+});
  
 // Use async series to run functions in serial (one after another)
 async.series([

@@ -6,6 +6,20 @@ client.connect((err) => {
  if(err) console.log(err);
  console.log('Connection to Cassandra Successful!');
 });
+
+var table = "CREATE TABLE users(" + 
+                                   "id UUID PRIMARY KEY," +
+                                   "lastname TEXT," + 
+                                   "age INT," +
+                                   "city TEXT, " +
+                                   "email TEXT," +
+                                   "firstname TEXT )";
+client.execute(table, (err, result) => {
+   if (err) 
+    console.log(err);
+   else
+    console.log("Table created successfully");
+});
  
 // Use async series to run functions in serial (one after another)
 async.series([

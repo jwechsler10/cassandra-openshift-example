@@ -1,7 +1,7 @@
 var cassandra = require('cassandra-driver');
 var async = require('async');
  
-var client = new cassandra.Client({contactPoints: ['172.30.224.244'], keyspace: 'demo'});
+var client = new cassandra.Client({contactPoints: ['172.30.224.244']});
 client.connect((err) => {
  if(err) console.log(err);
  console.log('Connection to Cassandra Successful!');

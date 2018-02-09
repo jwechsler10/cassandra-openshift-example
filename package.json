@@ -1,0 +1,28 @@
+{
+  "name": "jared",
+  "version": "1.0.0",
+  "description": "Connect to Cassandra with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwechsler10/cassandra-openshift-example.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Cassandra",
+    "OpenShift"
+  ],
+  "author": "jwechsler10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwechsler10/cassandra-openshift-example/issues"
+  },
+  "homepage": "https://github.com/jwechsler10/cassandra-openshift-example#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "cassandra-driver": "^3.4.0"
+  }
+}

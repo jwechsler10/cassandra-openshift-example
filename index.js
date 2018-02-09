@@ -1,7 +1,7 @@
 var cassandra = require('cassandra-driver');
 var async = require('async');
  
-var client = new cassandra.Client({contactPoints: ['127.0.0.1'], keyspace: 'demo'});
+var client = new cassandra.Client({contactPoints: ['172.30.224.244'], keyspace: 'demo'});
  
 // Use async series to run functions in serial (one after another)
 async.series([

@@ -7,10 +7,10 @@ client.connect((err) => {
  
  else {
   console.log('Connection to Cassandra Successful!');
-  var keyspace = "CREATE KEYSPACE IF NOT EXISTS users" +
-                 "WITH REPLICATION = {" +
-                  "'class' : 'SimpleStrategy'," +
-                  "'replication_factor' : 1" +
+  var keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +
+                 "WITH REPLICATION = { " +
+                  "'class' : 'SimpleStrategy', " +
+                  "'replication_factor' : 1 " +
                   "};";
 
  client.execute(keyspace, (err, result) => {

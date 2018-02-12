@@ -47,7 +47,7 @@ spec:
         name: cassandra-data
         annotations:  # comment line if you want to use a StorageClass
           # or specify which StorageClass
-          volume.beta.kubernetes.io/storage-class: "local-fast"   # comment line if you
+          volume.beta.kubernetes.io/storage-class: "slow"   # comment line if you
             # want to use a StorageClass or specify which StorageClass
       spec:
         accessModes: ["ReadWriteOnce"]

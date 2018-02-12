@@ -1,4 +1,5 @@
-const client = require('./index.js');
+const db = require('./index.js');
+const client = db.client;
 
 const getAllUsers = (req, res) => {
 

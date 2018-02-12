@@ -8,7 +8,7 @@ client.connect()
   var keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +
                  "WITH REPLICATION = { " +
                   "'class' : 'SimpleStrategy', " +
-                  "'replication_factor' : 1 " +
+                  "'replication_factor' : 2 " +
                   "};";
 
   return client.execute(keyspace);

@@ -2,7 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 const db = require('./index.js');
-const api = require('./webservice.js);
+const api = require('./webservice.js');
 
 const app = express();
 const conn = db.client;

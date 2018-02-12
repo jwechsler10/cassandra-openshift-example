@@ -1,3 +1,4 @@
+"use strict";
 var cassandra = require('cassandra-driver');
 var async = require('async');
  
@@ -11,9 +12,9 @@ client.connect()
                   "};";
 
   return client.execute(keyspace);
-});
-.then( () => {
-var table = "CREATE TABLE users(" + 
+})
+ .then( () => {
+ var table = "CREATE TABLE users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 
                                    "age INT," +
@@ -21,8 +22,8 @@ var table = "CREATE TABLE users(" +
                                    "email TEXT," +
                                    "firstname TEXT );";
    client.execute(table);
-});
-.catch((err) => {
+})
+ .catch((err) => {
  console.log(err);
 });
 

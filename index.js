@@ -96,3 +96,7 @@ async.series([
         });
     }
 ]);
+
+module.exports = {
+ client
+};

@@ -6,6 +6,7 @@ const api = require('./webservice.js');
 
 const app = express();
 const conn = db.client;
+const getAllEntries = api.getAllUsers;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

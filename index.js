@@ -14,7 +14,7 @@ client.connect()
   return client.execute(keyspace);
 })
  .then( () => {
- var table = "CREATE TABLE users(" + 
+ var table = "CREATE TABLE users.users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 
                                    "age INT," +

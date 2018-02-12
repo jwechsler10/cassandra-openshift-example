@@ -1,3 +1,5 @@
+const client = require('./index.js');
+
 const getAllUsers = (req, res) => {
 
         client.execute("SELECT * FROM users", (err, result) => {

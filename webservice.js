@@ -1,6 +1,6 @@
 const getAllUsers = (req, res) => {
 
-        client.execute("SELECT * FROM users, (err, result) => {
+        client.execute("SELECT * FROM users", (err, result) => {
         if (err) 
           return res.json(err);
               

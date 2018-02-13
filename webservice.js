@@ -3,9 +3,10 @@ const client = db.client;
 
 const getAllUsers = (req, res) => {
   client.execute("SELECT * FROM users.users", (err, result) => {
-    if (err) 
+    if (err) {
+      res.status(400);
       return res.json(err);
-              
+    }
     return res.json(result.rows);
          }); 
 }
@@ -14,8 +15,10 @@ const getUserByLastName = (req, res) => {
   const lastName = req.query.lastname;
   client.execute("SELECT * FROM users.users WHERE lastname = " + lastname, (err, result) => {
 
-  if (err)
+  if (err) {
+    res.status(400);
     return res.json(err);
+  }
   
   return res.json(result.rows);
 });
@@ -31,10 +34,14 @@ const createUser = (req, res) => {
   const params = [uuid(), lastname, age, city, email, firstname];
 
   client.execute(insert, params, (err, result) => {
-    if(err)
+    if(err) {
+      res.status(400);
       return res.json(err);
-    if(result != undefined)
+    }
+    if(result != undefined) {
+      res.status(201);
       return res.json("Insert was successful");
+    }
     });
 
 }

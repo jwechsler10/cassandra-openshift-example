@@ -14,7 +14,7 @@ client.connect()
   return client.execute(keyspace);
 })
  .then( () => {
- var table = "CREATE TABLE users.users(" + 
+ var table = "CREATE TABLE IF NOT EXISTS users.users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 
                                    "age INT," +
@@ -27,16 +27,15 @@ client.connect()
  console.log(err);
 });
 
-// Use async series to run functions in serial (one after another)
-async.series([
-    // Insert Bob
-    function (callback) {
-        client.execute("INSERT INTO users (lastname, age, city, email, firstname) VALUES ('Jones', 35, 'Austin', 'bob@example.com', 'Bob')", function (err, result) {
+client.execute("INSERT INTO users (lastname, age, city, email, firstname) VALUES ('Jones', 35, 'Austin', 'bob@example.com', 'Bob')", function (err, result) {
             // Run next function in series
+              if(err)
+               console.log(err);
+            console.log(result);
             console.log("Insert was successful");
-            callback(err, null);
         });
-    },
+    
+/*
     // Read users and print to console
     function (callback) {
         client.execute("SELECT lastname, age, city, email, firstname FROM users WHERE lastname='Jones'", function (err, result) {
@@ -95,7 +94,7 @@ async.series([
             callback(err, null);
         });
     }
-]);
+]); */
 
 module.exports = {
  client

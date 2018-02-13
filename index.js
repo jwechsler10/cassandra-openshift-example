@@ -2,7 +2,7 @@
 var cassandra = require('cassandra-driver');
 var async = require('async');
  
-var client = new cassandra.Client({contactPoints: ['172.30.224.244']});
+var client = new cassandra.Client({contactPoints: ['cassandra.test.svc']});
 client.connect()
  .then( () => {
   var keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +

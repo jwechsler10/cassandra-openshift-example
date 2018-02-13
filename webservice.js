@@ -29,7 +29,7 @@ const createUser = (req, res) => {
   const firstname = req.body.firstname;
 
   client.execute("INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES " + " ( " +
-    "uuid(), " + lastname ", " + age + ", " + city + ", " + email + ", " + firstname + ")", (err, result) => {
+    "uuid(), " + lastname + ", " + age + ", " + city + ", " + email + ", " + firstname + ")", (err, result) => {
     if(err)
       return res.json(err);
     if(result != undefined)

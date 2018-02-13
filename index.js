@@ -1,6 +1,5 @@
 "use strict";
 var cassandra = require('cassandra-driver');
-var async = require('async');
  
 var client = new cassandra.Client({contactPoints: ['cassandra.test.svc']});
 client.connect()

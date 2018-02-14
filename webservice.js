@@ -32,7 +32,7 @@ const createUser = (req, res) => {
   const email = req.body.email;
   const firstname = req.body.firstname;
   const id = uuid.random();
-  const insert = "INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES=?";
+  const insert = "INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES (?, ?, ?, ?, ?, ?)";
   const params = [id, lastname, age, city, email, firstname];
 
   client.execute(insert, params, (err, result) => {

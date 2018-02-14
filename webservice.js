@@ -1,5 +1,6 @@
 const db = require('./index.js');
 const client = db.client;
+const uuid = require('cassandra-driver').types.Uuid;
 
 const getAllUsers = (req, res) => {
   client.execute("SELECT * FROM users.users", (err, result) => {
@@ -30,8 +31,9 @@ const createUser = (req, res) => {
   const city = req.body.city;
   const email = req.body.email;
   const firstname = req.body.firstname;
+  const id = uuid.random();
   const insert = "INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES=?";
-  const params = [uuid(), lastname, age, city, email, firstname];
+  const params = [id, lastname, age, city, email, firstname];
 
   client.execute(insert, params, (err, result) => {
     if(err) {

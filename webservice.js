@@ -38,7 +38,7 @@ const createUser = (req, res) => {
   for (let param of params)
     console.log(param);
 
-  client.execute(insert, params, (err, result) => {
+  client.execute(insert, params, { prepare : true}, (err, result) => {
     if(err) {
       res.status(400);
       return res.json(err);

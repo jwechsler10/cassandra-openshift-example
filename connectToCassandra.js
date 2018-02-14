@@ -26,7 +26,7 @@ client.connect()
  console.log(err);
 });
 
-client.execute("INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES (uuid(), 'Jones', 35, 'Austin', 'bob@example.com', 'Bob')", function (err, result) {
+/* client.execute("INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES (uuid(), 'Jones', 35, 'Austin', 'bob@example.com', 'Bob')", function (err, result) {
             // Run next function in series
               if(err)
                console.log(err);
@@ -34,7 +34,7 @@ client.execute("INSERT INTO users.users (id, lastname, age, city, email, firstna
                console.log("Insert was successful");
         });
     
-/*
+
     // Read users and print to console
     function (callback) {
         client.execute("SELECT lastname, age, city, email, firstname FROM users WHERE lastname='Jones'", function (err, result) {

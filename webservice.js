@@ -34,6 +34,9 @@ const createUser = (req, res) => {
   const id = uuid.random();
   const insert = "INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES (?, ?, ?, ?, ?, ?)";
   const params = [id, lastname, age, city, email, firstname];
+  
+  for (let param of params)
+    console.log(param);
 
   client.execute(insert, params, (err, result) => {
     if(err) {

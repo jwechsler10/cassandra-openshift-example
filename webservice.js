@@ -1,4 +1,4 @@
-const db = require('./index.js');
+const db = require('./connectToCassandra.js');
 const client = db.client;
 const uuid = require('cassandra-driver').types.Uuid;
 

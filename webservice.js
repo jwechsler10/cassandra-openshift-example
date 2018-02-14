@@ -14,7 +14,9 @@ const getAllUsers = (req, res) => {
 
 const getUserByLastName = (req, res) => {
   const lastName = req.query.lastname;
-  client.execute("SELECT * FROM users.users WHERE lastname = " + lastname, (err, result) => {
+  const lastNameQuery = "SELECT * FROM users.users WHERE lastname = ?";
+  const params = [lastName]
+  client.execute(lastNameQuery, params, {prepare: true}, (err, result) => {
 
   if (err) {
     res.status(400);
@@ -34,9 +36,6 @@ const createUser = (req, res) => {
   const id = uuid.random();
   const insert = "INSERT INTO users.users (id, lastname, age, city, email, firstname) VALUES (?, ?, ?, ?, ?, ?)";
   const params = [id, lastname, age, city, email, firstname];
-  
-  for (let param of params)
-    console.log(param);
 
   client.execute(insert, params, { prepare : true}, (err, result) => {
     if(err) {

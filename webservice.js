@@ -14,7 +14,7 @@ const getAllUsers = (req, res) => {
 
 const getUserByLastName = (req, res) => {
   const lastName = req.query.lastname;
-  const lastNameQuery = "SELECT * FROM users.users WHERE lastname = ?";
+  const lastNameQuery = "SELECT (lastname, age, city, email, firstname) FROM users.users WHERE lastname = ?";
   const params = [lastName]
   client.execute(lastNameQuery, params, {prepare: true}, (err, result) => {
 

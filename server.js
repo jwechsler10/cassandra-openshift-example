@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
-const db = require('./index.js');
+const db = require('./connectToCassandra.js');
 const api = require('./webservice.js');
 
 const app = express();

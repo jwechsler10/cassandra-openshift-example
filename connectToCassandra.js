@@ -1,10 +1,10 @@
-"use strict";
-var cassandra = require('cassandra-driver');
+const cassandra = require('cassandra-driver');
+const types = require('cassandra-driver').types;
  
-var client = new cassandra.Client({contactPoints: ['cassandra.cassandra.svc']}, {queryOptions: { consistency: types.consistencies.quorum }});
+const client = new cassandra.Client({contactPoints: ['cassandra.cassandra.svc']}, {queryOptions: { consistency: types.consistencies.quorum }});
 client.connect()
  .then( () => {
-  var keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +
+  const keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +
                  "WITH REPLICATION = { " +
                   "'class' : 'SimpleStrategy', " +
                   "'replication_factor' : 2 " +
@@ -13,7 +13,7 @@ client.connect()
   return client.execute(keyspace);
 })
  .then( () => {
- var table = "CREATE TABLE IF NOT EXISTS users.users(" + 
+ const table = "CREATE TABLE IF NOT EXISTS users.users(" + 
                                    "id UUID PRIMARY KEY," +
                                    "lastname TEXT," + 
                                    "age INT," +

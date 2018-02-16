@@ -1,7 +1,7 @@
 "use strict";
 var cassandra = require('cassandra-driver');
  
-var client = new cassandra.Client({contactPoints: ['cassandra.cassandra.svc']});
+var client = new cassandra.Client({contactPoints: ['cassandra.cassandra.svc']}, {queryOptions: { consistency: types.consistencies.quorum }});
 client.connect()
  .then( () => {
   var keyspace = "CREATE KEYSPACE IF NOT EXISTS users " +
